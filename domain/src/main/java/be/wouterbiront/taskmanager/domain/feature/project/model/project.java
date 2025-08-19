@@ -9,7 +9,7 @@ import java.util.List;
 @Data
 @Builder
 public class project {
-    private int id;
+    private String id;
     private String name;
     private List<Task> taskList;
 }

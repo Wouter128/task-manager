@@ -8,8 +8,9 @@ import lombok.Data;
 @Data
 @Builder
 public class Task {
-    private int id;
+    private String id;
     private String name;
-    private User user;
+    private String description;
+    private User assignedUser;
     private TaskStatus status;
 }
