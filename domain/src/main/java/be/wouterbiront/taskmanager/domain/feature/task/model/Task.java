@@ -1,6 +1,7 @@
 package be.wouterbiront.taskmanager.domain.feature.task.model;
 
 import be.wouterbiront.taskmanager.domain.common.enums.TaskStatus;
+import be.wouterbiront.taskmanager.domain.feature.project.model.Project;
 import be.wouterbiront.taskmanager.domain.feature.user.model.User;
 import lombok.Builder;
 import lombok.Data;
@@ -11,6 +12,7 @@ public class Task {
     private String id;
     private String name;
     private String description;
-    private User assignedUser;
+    private Project project;
     private TaskStatus status;
+    private User assignedUser;
 }

@@ -8,8 +8,9 @@ import java.util.List;
 
 @Data
 @Builder
-public class project {
+public class Project {
     private String id;
     private String name;
+    private String description;
     private List<Task> taskList;
 }
