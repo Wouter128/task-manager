@@ -21,10 +21,6 @@
         </dependency>
         <dependency>
             <groupId>be.wouterbiront</groupId>
-            <artifactId>application</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>be.wouterbiront</groupId>
             <artifactId>controller</artifactId>
         </dependency>
         <dependency>

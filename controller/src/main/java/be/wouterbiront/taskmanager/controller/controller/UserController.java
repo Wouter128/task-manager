@@ -23,6 +23,7 @@ public class UserController {
             consumes = MediaType.APPLICATION_JSON_VALUE, path = "/create")
     public ResponseEntity<UserDto> createNewUser(@RequestBody UserDto userDto) {
         // TODO: map userDto to user
-        return ResponseEntity.ok().body(createUserCommand.execute(user));
+//        return ResponseEntity.ok().body(createUserCommand.execute(user));
+        return null;
     }
 }

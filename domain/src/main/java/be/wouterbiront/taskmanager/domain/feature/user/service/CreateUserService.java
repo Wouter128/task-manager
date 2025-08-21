@@ -6,7 +6,11 @@ import be.wouterbiront.taskmanager.domain.feature.user.port.out.UserRepositoryPo
 
 public class CreateUserService implements CreateUserCommand {
 
-    private UserRepositoryPort userRepository;
+    private final UserRepositoryPort userRepository;
+
+    public CreateUserService(UserRepositoryPort userRepository) {
+        this.userRepository = userRepository;
+    }
 
     @Override
     public User execute(User user) {
