@@ -28,6 +28,7 @@
         <module>controller</module>
         <module>persistence</module>
         <module>starter</module>
+        <module>application</module>
     </modules>
 
     <properties>
