@@ -24,11 +24,9 @@
 
     <modules>
         <module>domain</module>
-        <module>application</module>
         <module>controller</module>
         <module>persistence</module>
         <module>starter</module>
-        <module>application</module>
     </modules>
 
     <properties>
@@ -40,11 +38,6 @@
             <dependency>
                 <groupId>be.wouterbiront</groupId>
                 <artifactId>domain</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>be.wouterbiront</groupId>
-                <artifactId>application</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
