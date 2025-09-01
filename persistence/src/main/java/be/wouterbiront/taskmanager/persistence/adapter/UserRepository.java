@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 public class UserRepository implements UserRepositoryPort {
     @Override
     public User save(User user) {
-        // Dummy data
+        System.out.println("User is saved to database.");
         return user;
     }
 

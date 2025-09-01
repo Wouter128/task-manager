@@ -1,6 +1,7 @@
 package be.wouterbiront.taskmanager.controller.controller;
 
 import be.wouterbiront.taskmanager.controller.dto.UserDto;
+import be.wouterbiront.taskmanager.domain.feature.user.model.User;
 import be.wouterbiront.taskmanager.domain.feature.user.port.in.CreateUserCommand;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -21,9 +22,9 @@ public class UserController {
 
     @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE,
             consumes = MediaType.APPLICATION_JSON_VALUE, path = "/create")
-    public ResponseEntity<UserDto> createNewUser(@RequestBody UserDto userDto) {
+    public ResponseEntity<User> createNewUser(@RequestBody UserDto userDto) {
         // TODO: map userDto to user
-//        return ResponseEntity.ok().body(createUserCommand.execute(user));
-        return null;
+        User user = new User(userDto.firstName, userDto.lastName);
+        return ResponseEntity.ok().body(createUserCommand.execute(user));
     }
 }
