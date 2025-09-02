@@ -28,13 +28,7 @@ public class UserRepository implements UserRepositoryPort {
     public User findById(String id) {
         Optional<UserEntity> userOpt = userRepository.getUserById(id);
 
-        if (userOpt.isPresent()) {
-            UserEntity userEntity = userOpt.get();
-
-            return mapper.toUser(userEntity);
-        }
-
-        return null;
+        return userOpt.map(mapper::toUser).orElse(null);
     }
 
     @Override

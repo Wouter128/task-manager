@@ -1,4 +1,4 @@
-package be.wouterbiront.taskmanager.domain.feature.project.model;
+package be.wouterbiront.taskmanager.persistence.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Project {
+public class ProjectEntity {
     private String id;
     private String name;
     private String description;
