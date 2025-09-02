@@ -3,29 +3,24 @@ package be.wouterbiront.taskmanager.persistence.adapter;
 import be.wouterbiront.taskmanager.domain.feature.user.model.User;
 import be.wouterbiront.taskmanager.domain.feature.user.port.out.UserRepositoryPort;
 import be.wouterbiront.taskmanager.persistence.entity.UserEntity;
+import be.wouterbiront.taskmanager.persistence.mapper.UserMapper;
 import be.wouterbiront.taskmanager.persistence.repository.DummyUserRepository;
+import lombok.AllArgsConstructor;
+import org.mapstruct.factory.Mappers;
 import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
 @Repository
+@AllArgsConstructor
 public class UserRepository implements UserRepositoryPort {
 
     private final DummyUserRepository userRepository;
-
-    public UserRepository(DummyUserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
+    private final UserMapper mapper;
 
     @Override
     public void save(User user) {
-        UserEntity userEntity = UserEntity.builder()
-                .id(user.getId())
-                .firstName(user.getFirstName())
-                .lastName(user.getLastName())
-                .build();
-
-        userRepository.saveUser(userEntity);
+        userRepository.saveUser(mapper.toUserEntity(user));
         System.out.println("Saved user with firstname: " + user.getFirstName() + " and lastname: " + user.getLastName());
     }
 
@@ -36,8 +31,7 @@ public class UserRepository implements UserRepositoryPort {
         if (userOpt.isPresent()) {
             UserEntity userEntity = userOpt.get();
 
-            // Todo: create mapper
-            return new User(userEntity.getId(), userEntity.getFirstName(), userEntity.getLastName());
+            return mapper.toUser(userEntity);
         }
 
         return null;
