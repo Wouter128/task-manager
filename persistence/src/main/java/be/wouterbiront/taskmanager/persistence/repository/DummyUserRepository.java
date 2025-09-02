@@ -11,6 +11,8 @@ import java.util.Optional;
 public class DummyUserRepository {
     private List<UserEntity> userList;
 
+    private int id = 0;
+
     public DummyUserRepository() {
         init();
     }
@@ -31,10 +33,18 @@ public class DummyUserRepository {
 
         userList.add(user1);
         userList.add(user2);
+
+        id = 2;
     }
 
     public void saveUser(UserEntity user) {
+        id++;
+        user.setId(String.valueOf(id));
         userList.add(user);
+
+        for (UserEntity userEntity : userList) {
+            System.out.println(userEntity.toString());
+        }
     }
 
     public List<UserEntity> getUsers() {
