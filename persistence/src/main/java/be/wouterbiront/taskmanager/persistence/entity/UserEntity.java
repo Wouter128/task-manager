@@ -1,18 +1,12 @@
 package be.wouterbiront.taskmanager.persistence.entity;
 
-import jakarta.persistence.*;
-import java.util.*;
+import lombok.Builder;
+import lombok.Data;
 
-@Entity
-@Table(name = "users")
+@Data
+@Builder
 public class UserEntity {
-
-    @Id
-    private UUID id = UUID.randomUUID();
-
+    private String id;
     private String firstName;
     private String lastName;
-
-    @OneToMany(mappedBy = "assignedUser")
-    private List<TaskEntity> tasks = new ArrayList<>();
 }

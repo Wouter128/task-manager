@@ -15,9 +15,9 @@ public class CreateUserService implements CreateUserCommand {
     }
 
     @Override
-    public User execute(User user) {
+    public void execute(User user) {
         // TODO: further implementation
 
-        return userRepository.save(user);
+        userRepository.save(user);
     }
 }

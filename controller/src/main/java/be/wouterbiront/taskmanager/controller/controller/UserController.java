@@ -22,9 +22,10 @@ public class UserController {
 
     @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE,
             consumes = MediaType.APPLICATION_JSON_VALUE, path = "/create")
-    public ResponseEntity<User> createNewUser(@RequestBody UserDto userDto) {
+    public ResponseEntity<Void> createNewUser(@RequestBody UserDto userDto) {
         // TODO: map userDto to user
         User user = new User(userDto.firstName, userDto.lastName);
-        return ResponseEntity.ok().body(createUserCommand.execute(user));
+        createUserCommand.execute(user);
+        return ResponseEntity.ok().build();
     }
 }
