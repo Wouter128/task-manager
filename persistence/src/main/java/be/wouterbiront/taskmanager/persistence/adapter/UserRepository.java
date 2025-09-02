@@ -9,6 +9,7 @@ import lombok.AllArgsConstructor;
 import org.mapstruct.factory.Mappers;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Optional;
 
 @Repository
@@ -21,7 +22,6 @@ public class UserRepository implements UserRepositoryPort {
     @Override
     public void save(User user) {
         userRepository.saveUser(mapper.toUserEntity(user));
-        System.out.println("Saved user with firstname: " + user.getFirstName() + " and lastname: " + user.getLastName());
     }
 
     @Override
@@ -35,5 +35,10 @@ public class UserRepository implements UserRepositoryPort {
         }
 
         return null;
+    }
+
+    @Override
+    public List<User> findAll() {
+        return mapper.toUser(userRepository.getAllUsers());
     }
 }

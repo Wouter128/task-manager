@@ -41,13 +41,9 @@ public class DummyUserRepository {
         id++;
         user.setId(String.valueOf(id));
         userList.add(user);
-
-        for (UserEntity userEntity : userList) {
-            System.out.println(userEntity.toString());
-        }
     }
 
-    public List<UserEntity> getUsers() {
+    public List<UserEntity> getAllUsers() {
         return userList;
     }
 
